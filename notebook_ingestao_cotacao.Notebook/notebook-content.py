@@ -131,3 +131,20 @@ df_moeda = pd.DataFrame(data)
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+import requests
+
+url = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart"
+params = {"vs_currency": "usd", "days": "30"}  # últimos 30 dias
+r = requests.get(url, params=params)
+dados = r.json()
+print(dados["prices"][:5])  # imprime os primeiros registros
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
